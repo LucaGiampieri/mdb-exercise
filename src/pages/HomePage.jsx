@@ -1,11 +1,23 @@
 
+import { useTMDBContext } from "../context/TMDBContext"
+
 function HomePage() {
 
+    const { movieList } = useTMDBContext();
+
     return (
-        <div className="container">
-            <h2>HOMEPAGE</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deserunt necessitatibus repellendus quod rerum beatae assumenda? Aliquam aut alias ea quae quibusdam, sunt quaerat eligendi voluptatibus magnam totam quis quo.</p>
-        </div>
+        <ul>
+            {movieList.map(movie => {
+                return (
+                    <li key={movie.id}>
+                        titolo = {movie.title} <br />
+                        titolo originale = {movie.original_title} <br />
+                        lingua = {movie.original_language} <br />
+                        voto = {movie.vote_average}
+                    </li>
+                );
+            })}
+        </ul>
     )
 }
 
