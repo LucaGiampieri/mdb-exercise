@@ -25,13 +25,70 @@ function HomePage() {
                 {movieList.map(movie => {
                     return (
                         <li key={movie.id}>
+                            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                             titolo = {movie.title} <br />
                             titolo originale = {movie.original_title} <br />
                             lingua =
                             <img
+                                className="lenguage-flag"
                                 src={flags[movie.original_language] || defaultFlag}
                                 alt={movie.original_language}
                             /> <br />
+                            {Math.ceil(movie.vote_average / 2) === 0 && (
+                                <>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </>
+                            )}
+                            {Math.ceil(movie.vote_average / 2) === 1 && (
+                                <>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </>
+                            )}
+                            {Math.ceil(movie.vote_average / 2) === 2 && (
+                                <>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </>
+                            )}
+                            {Math.ceil(movie.vote_average / 2) === 3 && (
+                                <>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </>
+                            )}
+                            {Math.ceil(movie.vote_average / 2) === 4 && (
+                                <>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </>
+                            )}
+                            {Math.ceil(movie.vote_average / 2) === 5 && (
+                                <>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </>
+                            )}
+
                         </li>
                     );
                 })}
@@ -41,14 +98,70 @@ function HomePage() {
                 {tvList.map(tv => {
                     return (
                         <li key={tv.id}>
+                            <img src={`https://image.tmdb.org/t/p/w500${tv.poster_path}`} alt={tv.name} />
                             titolo = {tv.name} <br />
                             titolo originale = {tv.original_name} <br />
                             lingua =
                             <img
+                                className="lenguage-flag"
                                 src={flags[tv.original_language] || defaultFlag}
                                 alt={tv.original_language}
                             /> <br />
-                            voto = {tv.vote_average} <br />
+                            {Math.ceil(tv.vote_average / 2) === 0 && (
+                                <>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </>
+                            )}
+                            {Math.ceil(tv.vote_average / 2) === 1 && (
+                                <>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </>
+                            )}
+                            {Math.ceil(tv.vote_average / 2) === 2 && (
+                                <>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </>
+                            )}
+                            {Math.ceil(tv.vote_average / 2) === 3 && (
+                                <>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </>
+                            )}
+                            {Math.ceil(tv.vote_average / 2) === 4 && (
+                                <>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </>
+                            )}
+                            {Math.ceil(tv.vote_average / 2) === 5 && (
+                                <>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </>
+                            )}
+
                         </li>
                     );
                 })}
