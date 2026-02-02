@@ -45,3 +45,15 @@ body {
 .nav-input {
   width: 15%;
 }
+
+/* HomePage */
+
+li {
+  margin: 2rem;
+}
+
+li img {
+  height: 20px;
+  width: 25px;
+  margin-left: 0.5rem;
+}

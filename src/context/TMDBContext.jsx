@@ -1,27 +1,30 @@
 import { createContext, useContext } from "react";
 import { useState, useEffect } from "react";
-import axios from "axios";
 
 const TMDBContext = createContext();
 
 
 function TMDBProvider({ children }) {
 
-    const endpoint = `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_API_KEY}&query=`
+    const endpointFilm = `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_API_KEY}&language=it_IT&query=`;
 
-    const [movieList, setMovieList] = useState([])
+    const endpointTv = `https://api.themoviedb.org/3/search/tv?api_key=${import.meta.env.VITE_API_KEY}&language=it_IT&query=`;
 
+    const [movieList, setMovieList] = useState([]);
 
+    const [tvList, setTvList] = useState([]);
 
-    console.log(movieList);
-
+    console.log(tvList);
 
     return (
         <TMDBContext.Provider
             value={{
-                endpoint,
+                endpointFilm,
+                endpointTv,
                 movieList,
-                setMovieList
+                tvList,
+                setMovieList,
+                setTvList
             }}>
             {children}
         </TMDBContext.Provider>

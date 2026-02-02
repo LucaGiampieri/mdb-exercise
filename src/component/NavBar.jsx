@@ -5,16 +5,24 @@ import axios from "axios";
 
 function NavBar() {
 
-    const { endpoint, setMovieList } = useTMDBContext();
+    const { endpointFilm, endpointTv, setMovieList, setTvList } = useTMDBContext();
 
     const [inputValue, setInputValue] = useState("");
 
     useEffect(() => {
-        if (!inputValue.trim()) return; // evita chiamate vuote
+        if (!inputValue.trim()) return;
 
-        // chiama l'API ogni volta che inputValue cambia
-        axios.get(`${endpoint}${inputValue}`)
+        axios.get(`${endpointFilm}${inputValue}`)
             .then(res => setMovieList(res.data.results))
+            .catch(err => console.error("Errore API:", err));
+
+    }, [inputValue]);
+
+    useEffect(() => {
+        if (!inputValue.trim()) return;
+
+        axios.get(`${endpointTv}${inputValue}`)
+            .then(res => setTvList(res.data.results))
             .catch(err => console.error("Errore API:", err));
 
     }, [inputValue]);
