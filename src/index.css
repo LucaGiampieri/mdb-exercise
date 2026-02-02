@@ -1,0 +1,47 @@
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* General */
+
+body {
+  background-color: #383B43;
+}
+
+/* Not Found */
+
+.notfound-title {
+  font-size: 8rem;
+}
+
+.notfound-link {
+  display: block;
+  font-size: 4rem;
+  margin-top: 4rem;
+  text-align: end;
+  margin-right: 3rem;
+}
+
+/* Navbar */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: #1C2027;
+}
+
+.nav-title {
+  font-size: 3rem;
+  color: darkgray;
+}
+
+.nav-input {
+  width: 15%;
+}
