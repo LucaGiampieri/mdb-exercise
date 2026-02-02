@@ -48,12 +48,54 @@ body {
 
 /* HomePage */
 
-li {
-  margin: 2rem;
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5rem 10rem;
+  gap: 3rem;
 }
 
-.lenguage-flag {
-  height: 20px;
-  width: 25px;
-  margin-left: 0.5rem;
+/* Card */
+
+.card {
+  position: relative;
+  flex-basis: calc((100% - 9rem) / 4);
+  height: 460px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-front {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-back {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: black;
+  color: white;
+  padding: 1rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.card:hover .card-front {
+  opacity: 0;
+}
+
+.card:hover .card-back {
+  opacity: 1;
+}
+
+.card-background {
+  width: 100%;
+}
+
+.card-lenguage-flag {
+  height: 25px;
+  width: 35px;
 }

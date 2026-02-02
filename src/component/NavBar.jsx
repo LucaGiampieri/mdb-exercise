@@ -22,7 +22,10 @@ function NavBar() {
         if (!inputValue.trim()) return;
 
         axios.get(`${endpointTv}${inputValue}`)
-            .then(res => setTvList(res.data.results))
+            .then(res => setTvList(res.data.results.map(tv => {
+                return { ...tv, title: tv.name, original_title: tv.original_name }
+
+            })))
             .catch(err => console.error("Errore API:", err));
 
     }, [inputValue]);
