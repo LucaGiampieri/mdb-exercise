@@ -1,19 +1,9 @@
 import { Link } from "react-router-dom";
+import { useTMDBContext } from "../context/TMDBContext";
 
 function FilmAndTvCard({ movie }) {
 
-    const flags = {
-        en: "https://flagcdn.com/us.svg",
-        it: "https://flagcdn.com/it.svg",
-        fr: "https://flagcdn.com/fr.svg",
-        es: "https://flagcdn.com/es.svg",
-        de: "https://flagcdn.com/de.svg",
-        ja: "https://flagcdn.com/jp.svg",
-        zh: "https://flagcdn.com/cn.svg",
-        ko: "https://flagcdn.com/kr.svg"
-    };
-
-    const defaultFlag = "https://flagcdn.com/un.svg";
+    const { flags, defaultFlag } = useTMDBContext()
 
     return (
         <div
@@ -28,10 +18,10 @@ function FilmAndTvCard({ movie }) {
                 <div className="card-back">
                     <div className="card-back-content">
                         <h2 className="card-movie-title">{movie.title} </h2>
-                        <h3 className="card-movie-original-title">titolo originale = {movie.original_title} </h3>
+                        <h3 className="card-movie-original-title">Titolo originale = {movie.original_title} </h3>
                         <div className="card-lenguage-score-container">
                             <div className="card-lenguage" >
-                                <h4> lingua = </h4>
+                                <h4> Lingua <br />originale </h4>
                                 <img
                                     className="card-lenguage-flag"
                                     src={flags[movie.original_language] || defaultFlag}

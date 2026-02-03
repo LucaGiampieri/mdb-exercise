@@ -177,6 +177,17 @@ ul {
   width: 100%;
 }
 
+.card-button-container-detail {
+  display: flex;
+  justify-content: center;
+}
+
+.card-button-detail {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
 .card-movie-title-detial {
   font-size: 4rem;
 }
@@ -210,6 +221,11 @@ ul {
   color: darkgoldenrod;
 }
 
+.card-genre-detail {
+  margin-top: 1rem;
+  font-size: 1.8rem;
+}
+
 .card-description-detail {
   font-size: 2rem;
   margin: 1rem 0;
@@ -223,20 +239,4 @@ ul {
   font-size: 2rem;
   font-weight: bold;
   margin-top: 0.5rem;
-}
-
-
-
-
-
-
-.card-button-container-detail {
-  display: flex;
-  justify-content: center;
-}
-
-.card-button-detail {
-  margin-top: 1rem;
-  font-size: 1.5rem;
-  color: white;
 }

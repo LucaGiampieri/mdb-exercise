@@ -18,7 +18,18 @@ function TMDBProvider({ children }) {
 
     const [personList, setPersonList] = useState([]);
 
-    console.log(tvList);
+    const flags = {
+        en: "https://flagcdn.com/us.svg",
+        it: "https://flagcdn.com/it.svg",
+        fr: "https://flagcdn.com/fr.svg",
+        es: "https://flagcdn.com/es.svg",
+        de: "https://flagcdn.com/de.svg",
+        ja: "https://flagcdn.com/jp.svg",
+        zh: "https://flagcdn.com/cn.svg",
+        ko: "https://flagcdn.com/kr.svg"
+    };
+    const defaultFlag = "https://flagcdn.com/un.svg";
+
 
     return (
         <TMDBContext.Provider
@@ -29,6 +40,8 @@ function TMDBProvider({ children }) {
                 movieList,
                 tvList,
                 personList,
+                flags,
+                defaultFlag,
                 setMovieList,
                 setTvList,
                 setPersonList

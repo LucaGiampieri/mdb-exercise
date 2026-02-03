@@ -5,7 +5,7 @@ import axios from "axios";
 
 function NavBar() {
 
-    const { endpointFilm, endpointTv, endpointPerson, setMovieList, setTvList, setPersonList } = useTMDBContext();
+    const { endpointFilm, endpointTv, setMovieList, setTvList } = useTMDBContext();
 
     const [inputValue, setInputValue] = useState("");
 

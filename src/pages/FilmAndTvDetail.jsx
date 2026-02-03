@@ -2,11 +2,11 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom";
-
-
+import { useTMDBContext } from "../context/TMDBContext";
 
 function FilmAndTvDetail() {
 
+    const { flags, defaultFlag } = useTMDBContext()
 
     const { id, type } = useParams();
 
@@ -29,7 +29,9 @@ function FilmAndTvDetail() {
                     title: type === "tv" ? data.name : data.title,
                     original_title: type === "tv" ? data.original_name : data.original_title,
                     release_date: type === "tv" ? data.first_air_date : data.release_date,
-                    media_type: type
+                    media_type: type,
+                    genres: data.genres?.map(g => g.name) || [],
+                    year: (type === "tv" ? data.first_air_date : data.release_date)?.slice(0, 4),
                 };
 
                 setCardDetail(normalizedData);
@@ -48,20 +50,6 @@ function FilmAndTvDetail() {
             });
 
     }, [id, type]);
-
-    const flags = {
-        en: "https://flagcdn.com/us.svg",
-        it: "https://flagcdn.com/it.svg",
-        fr: "https://flagcdn.com/fr.svg",
-        es: "https://flagcdn.com/es.svg",
-        de: "https://flagcdn.com/de.svg",
-        ja: "https://flagcdn.com/jp.svg",
-        zh: "https://flagcdn.com/cn.svg",
-        ko: "https://flagcdn.com/kr.svg"
-    };
-    const defaultFlag = "https://flagcdn.com/un.svg";
-
-    console.log(type, id);
 
     return (
 
@@ -86,10 +74,10 @@ function FilmAndTvDetail() {
 
                     <div className="card-text-detail">
                         <h2 className="card-movie-title-detial">{cardDetail.title} </h2>
-                        <h3 className="card-movie-original-title-detail">titolo originale = {cardDetail.original_title} </h3>
+                        <h3 className="card-movie-original-title-detail">Titolo originale = {cardDetail.original_title} <br /> Anno di uscita: {cardDetail.year}</h3>
                         <div className="card-lenguage-score-container-deatl">
                             <div className="card-lenguage-detail" >
-                                <h4> lingua = </h4>
+                                <h4> Lingua originale = </h4>
                                 <img
                                     className="card-lenguage-flag-detail"
                                     src={flags[cardDetail.original_language] || defaultFlag}
@@ -153,6 +141,9 @@ function FilmAndTvDetail() {
                                 )}
                             </div>
                         </div>
+                        <h4 className="card-genre-detail">
+                            Genere: {cardDetail?.genres?.join(", ")}
+                        </h4>
                         <p className="card-description-detail">
                             {cardDetail.overview}
                         </p>
