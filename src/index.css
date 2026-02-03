@@ -13,6 +13,10 @@ body {
   background-color: #383B43;
 }
 
+ul {
+  list-style-type: none;
+}
+
 /* Not Found */
 
 .notfound-title {
@@ -159,17 +163,18 @@ body {
 }
 
 .card-img-detail {
-  flex-basis: 30%;
+  flex-basis: 25%;
 }
 
 .card-text-detail {
-  flex-basis: 70%;
+  flex-basis: 75%;
+  padding: 0 2rem;
 
 }
 
 .card-background-detail {
   border: 2px solid white;
-  width: 90%;
+  width: 100%;
 }
 
 .card-movie-title-detial {
@@ -210,12 +215,28 @@ body {
   margin: 1rem 0;
 }
 
+.card-director-detail {
+  font-size: 2rem;
+}
+
+.card-actors-container-detail {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+
+
+
+
+
 .card-button-container-detail {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .card-button-detail {
+  margin-top: 1rem;
   font-size: 1.5rem;
   color: white;
 }

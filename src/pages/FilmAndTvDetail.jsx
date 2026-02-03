@@ -2,16 +2,19 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom";
-import { useTMDBContext } from "../context/TMDBContext";
+
 
 
 function FilmAndTvDetail() {
 
-    const { movieList, tvList, endpointFilm, endpointTv } = useTMDBContext();
 
     const { id, type } = useParams();
 
     const [cardDetail, setCardDetail] = useState();
+
+    const [actors, setActors] = useState();
+
+    const [director, setDirector] = useState();
 
     const navigate = useNavigate();
 
@@ -34,6 +37,14 @@ function FilmAndTvDetail() {
             .catch(err => {
                 navigate("/");
                 console.log("errore sulla chiamata", err);
+            });
+
+        axios.get(`https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${import.meta.env.VITE_API_KEY}&language=it-IT`)
+            .then(resp => {
+                setActors(resp.data.cast.slice(0, 5));
+
+                const director = resp.data.crew.find(p => p.job === "Director");
+                setDirector(director);
             });
 
     }, [id, type]);
@@ -64,6 +75,13 @@ function FilmAndTvDetail() {
                         <img
                             className="card-background-detail"
                             src={`https://image.tmdb.org/t/p/w342${cardDetail.poster_path}`} alt={cardDetail.title} />
+                        <div className="card-button-container-detail">
+                            <Link
+                                to="/"
+                                className="card-button-detail">
+                                Torna alla home
+                            </Link>
+                        </div>
                     </div>
 
                     <div className="card-text-detail">
@@ -138,14 +156,12 @@ function FilmAndTvDetail() {
                         <p className="card-description-detail">
                             {cardDetail.overview}
                         </p>
-                        <div className="card-button-container-detail">
-                            <Link
-                                to="/"
-                                className="card-button-detail">
-                                Torna alla home
-                            </Link>
+                        <h5 className="card-director-detail">Regista: {director?.name}</h5>
+                        <div className="card-actors-container-detail">
+                            <p>
+                                Attori: {actors?.map(actor => actor.name).join(", ")}
+                            </p>
                         </div>
-
                     </div>
 
                 </div>
