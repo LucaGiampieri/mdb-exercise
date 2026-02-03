@@ -10,9 +10,13 @@ function TMDBProvider({ children }) {
 
     const endpointTv = `https://api.themoviedb.org/3/search/tv?api_key=${import.meta.env.VITE_API_KEY}&language=it_IT&query=`;
 
+    const endpointPerson = `https://api.themoviedb.org/3/search/person?api_key=${import.meta.env.VITE_API_KEY}&query=`
+
     const [movieList, setMovieList] = useState([]);
 
     const [tvList, setTvList] = useState([]);
+
+    const [personList, setPersonList] = useState([]);
 
     console.log(tvList);
 
@@ -21,10 +25,13 @@ function TMDBProvider({ children }) {
             value={{
                 endpointFilm,
                 endpointTv,
+                endpointPerson,
                 movieList,
                 tvList,
+                personList,
                 setMovieList,
-                setTvList
+                setTvList,
+                setPersonList
             }}>
             {children}
         </TMDBContext.Provider>
