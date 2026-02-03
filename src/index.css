@@ -99,6 +99,7 @@ body {
   overflow-y: auto;
   scrollbar-width: none;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .card-background {
@@ -111,14 +112,14 @@ body {
 }
 
 .card-movie-title {
-  font-size: 1.5rem;
-  text-align: center;
+  font-size: 1.8rem;
+
   margin-bottom: 0.5rem;
 }
 
 .card-movie-original-title {
   font-size: 0.8rem;
-  text-align: center;
+
 }
 
 .card-lenguage-score-container {
@@ -135,5 +136,14 @@ body {
 }
 
 .card-description {
-  text-align: center;
+  font-size: 1.2rem;
+}
+
+.card-button {
+  color: white;
+  margin-top: 1rem;
+  cursor: pointer;
+  background-color: black;
+  text-decoration: underline;
+  border: none;
 }
