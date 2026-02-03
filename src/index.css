@@ -140,10 +140,82 @@ body {
 }
 
 .card-button {
+  display: inline-block;
   color: white;
   margin-top: 1rem;
   cursor: pointer;
   background-color: black;
   text-decoration: underline;
   border: none;
+}
+
+/* Card Detail */
+
+.card-detail {
+  width: 85%;
+  margin: 0 auto;
+  padding: 4rem 0;
+  display: flex;
+}
+
+.card-img-detail {
+  flex-basis: 30%;
+}
+
+.card-text-detail {
+  flex-basis: 70%;
+
+}
+
+.card-background-detail {
+  border: 2px solid white;
+  width: 90%;
+}
+
+.card-movie-title-detial {
+  font-size: 4rem;
+}
+
+.card-movie-original-title-detail {
+  font-size: 2rem;
+  color: #1C2027;
+}
+
+.card-lenguage-score-container-deatl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.card-lenguage-detail {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  gap: 1rem;
+}
+
+.card-lenguage-flag-detail {
+  height: 40px;
+  width: 60px;
+}
+
+.card-score-detail {
+  font-size: 3rem;
+  color: darkgoldenrod;
+}
+
+.card-description-detail {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.card-button-container-detail {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-button-detail {
+  font-size: 1.5rem;
+  color: white;
 }

@@ -6,7 +6,10 @@ function HomePage() {
 
     const { movieList, tvList, personList } = useTMDBContext();
 
-    const movieTvList = [...movieList, ...tvList];
+    const movieTvList = [
+        ...movieList.map(m => ({ ...m, media_type: "movie" })),
+        ...tvList.map(tv => ({ ...tv, media_type: "tv" }))
+    ];
 
     return (
         <main>
