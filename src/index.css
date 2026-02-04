@@ -44,6 +44,7 @@ ul {
 .nav-title {
   font-size: 3rem;
   color: darkgray;
+  font-family: "Orbitron", sans-serif;
 }
 
 .nav-input {
@@ -54,22 +55,31 @@ ul {
 
 .card-container {
   display: flex;
-  flex-wrap: wrap;
-  padding: 2rem 10rem;
-  gap: 3rem;
+  padding: 2rem;
+  gap: 1rem;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #383B43 #1C2027;
+  height: 450px;
+  background-color: #1C2027;
+  border-top: 2px solid #383B43;
 }
 
 .section-title {
   padding: 0 1rem;
-  font-size: 4rem;
-  color: #1C2027;
+  font-size: 2rem;
+  color: white;
+  border-bottom: 1px solid white;
+  margin-top: 1rem;
+  font-family: "Orbitron", sans-serif;
 }
 
 /* Card */
 
 .card {
   perspective: 1000px;
-  flex-basis: calc((100% - 15rem) / 5);
+
   aspect-ratio: 4 / 6;
   cursor: pointer;
 }
@@ -245,4 +255,12 @@ ul {
   font-size: 2rem;
   font-weight: bold;
   margin-top: 0.5rem;
+}
+
+/* Footer */
+
+.footer {
+  height: 50px;
+  background-color: #1C2027;
+  margin-top: 4rem;
 }
