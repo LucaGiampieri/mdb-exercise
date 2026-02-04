@@ -19,6 +19,7 @@ function FilmAndTvDetail() {
     const navigate = useNavigate();
 
     useEffect(() => {
+
         axios.get(`https://api.themoviedb.org/3/${type}/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=it-IT`)
             .then(resp => {
 
@@ -32,6 +33,10 @@ function FilmAndTvDetail() {
                     media_type: type,
                     genres: data.genres?.map(g => g.name) || [],
                     year: (type === "tv" ? data.first_air_date : data.release_date)?.slice(0, 4),
+                    director:
+                        type === "tv"
+                            ? data.created_by?.map(p => p.name).join(", ")
+                            : null
                 };
 
                 setCardDetail(normalizedData);
@@ -41,15 +46,26 @@ function FilmAndTvDetail() {
                 console.log("errore sulla chiamata", err);
             });
 
+
         axios.get(`https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${import.meta.env.VITE_API_KEY}&language=it-IT`)
             .then(resp => {
+
                 setActors(resp.data.cast.slice(0, 5));
 
-                const director = resp.data.crew.find(p => p.job === "Director");
-                setDirector(director);
+                const directorCrew = resp.data.crew.find(p => p.job === "Director");
+
+                // 👉 aggiorna cardDetail anche per film
+                if (directorCrew) {
+                    setCardDetail(prev => ({
+                        ...prev,
+                        director: directorCrew.name
+                    }));
+                }
             });
 
     }, [id, type]);
+
+
 
     return (
 
@@ -147,10 +163,12 @@ function FilmAndTvDetail() {
                         <p className="card-description-detail">
                             {cardDetail.overview}
                         </p>
-                        <h5 className="card-director-detail">Regista: {director?.name}</h5>
+                        <h5 className="card-director-detail">
+                            {cardDetail?.media_type === "tv" ? "Creatori" : "Regia"}: {cardDetail?.director || "Non disponibile"}
+                        </h5>
                         <div className="card-actors-container-detail">
                             <p>
-                                Attori: {actors?.map(actor => actor.name).join(", ")}
+                                Attori: {actors?.length ? actors.map(actor => actor.name).join(", ") : "Non disponibile"}
                             </p>
                         </div>
                     </div>

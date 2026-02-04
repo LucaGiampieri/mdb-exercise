@@ -55,15 +55,21 @@ ul {
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  padding: 5rem 10rem;
+  padding: 2rem 10rem;
   gap: 3rem;
+}
+
+.section-title {
+  padding: 0 1rem;
+  font-size: 4rem;
+  color: #1C2027;
 }
 
 /* Card */
 
 .card {
   perspective: 1000px;
-  flex-basis: calc((100% - 9rem) / 4);
+  flex-basis: calc((100% - 15rem) / 5);
   aspect-ratio: 4 / 6;
   cursor: pointer;
 }
@@ -111,13 +117,12 @@ ul {
 }
 
 .card-lenguage-flag {
-  height: 25px;
-  width: 35px;
+  height: 20px;
+  width: 30px;
 }
 
 .card-movie-title {
-  font-size: 1.8rem;
-
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
@@ -131,6 +136,7 @@ ul {
   justify-content: space-around;
   align-items: center;
   margin: 1rem 0;
+  font-size: 0.8rem;
 }
 
 .card-lenguage {
@@ -140,7 +146,7 @@ ul {
 }
 
 .card-description {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 
 .card-button {
