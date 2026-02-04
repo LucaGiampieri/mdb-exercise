@@ -21,7 +21,7 @@ function HomePage() {
             {/* 👉 Latest se NON cerca */}
             {!isSearching && (
                 <>
-                    <h2 className="section-title">Film:</h2>
+                    <h2 className="section-title">Ultime uscite popolari film:</h2>
                     <div className="card-container">
                         {latestMovies.map(movie => {
                             if (!movie.poster_path) return null;
@@ -31,7 +31,7 @@ function HomePage() {
                         })}
                     </div>
 
-                    <h2 className="section-title">Serie tv:</h2>
+                    <h2 className="section-title">Ultime uscite popolari tv:</h2>
                     <div className="card-container">
                         {latestTv.map(movie => {
                             if (!movie.poster_path) return null;

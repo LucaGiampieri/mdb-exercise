@@ -6,6 +6,9 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import "@fontsource/orbitron/400.css";
 import "@fontsource/orbitron/700.css";
 import "@fontsource/audiowide";
+import "@fontsource/exo-2/400.css";
+import "@fontsource/exo-2/700.css";
+
 
 
 
